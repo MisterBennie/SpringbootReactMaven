@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 
 @RestController
-public class GreetingController {
+public class PersonController {
 
 	private final Address[] addresses = {
 			new Address("hoflaan", 17, "1234AA", "Zoomstra"),
@@ -27,11 +27,6 @@ public class GreetingController {
 
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
-
-	@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}
 
 	@GetMapping("/person")
 	public Person person(@RequestParam(value = "id", defaultValue = "") String id) {

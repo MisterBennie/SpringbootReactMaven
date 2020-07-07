@@ -39,7 +39,9 @@ class Person extends React.Component {
                     persons: data
                 });
             },
-                (error) => { });
+                (error) => {
+                    console.log(error);
+                });
     }
 
     savePerson() {
@@ -108,7 +110,7 @@ class Person extends React.Component {
                         return <SelectButton
                             key={person.id}
                             person={person}
-                            isSelected={person.id == this.state.currentId}
+                            isSelected={person.id === this.state.currentId}
                             onClick={(event) => this.onSelectionClicked(event)}
                         />
                     })
